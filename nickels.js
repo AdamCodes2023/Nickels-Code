@@ -18,6 +18,15 @@ In this digital version, all decisions are handled randomly and immediately.
 The goal is to beat the computer opponent.
 */
 
+//Keep Track of Covered Values.
+const pRolledNums = [];
+const cRolledNums = [];
+
+//Random Number Generation.
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
 //Graphics, Sound, and Map Organization.
 const dot1Dice = "1"
 const dot2Dice = "2"
