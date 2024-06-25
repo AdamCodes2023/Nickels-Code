@@ -88,6 +88,54 @@ function findNumberTileInfo(diceSum, isX, isY, isType, isPlayer) {
       return "d";
     }
   }
+  if (diceSum == 5) {
+   if (isX) {
+      return 3;
+    }
+    if (isY) {
+      if (isPlayer) {
+        return 4;
+      }
+      else {
+        return 1;
+      }
+    }
+    if (isType) {
+      return "e";
+    }
+  }
+  if (diceSum == 6) {
+    if (isX) {
+      return 4;
+    }
+    if (isY) {
+      if (isPlayer) {
+        return 4;
+      }
+      else {
+        return 1;
+      }
+    }
+    if (isType) {
+      return "f";
+    }
+  }
+  if (diceSum == 8) {
+    if (isX) {
+      return 0;
+    }
+    if (isY) {
+      if (isPlayer) {
+        return 5;
+      }
+      else {
+        return 2;
+      }
+    }
+    if (isType) {
+      return "h";
+    }
+  }
 }
 
 //Graphics, Sound, and Map Organization.
