@@ -406,3 +406,23 @@ onInput("l", () => {
     }
   }
 })
+
+//Reset the Game.
+onInput("k", () => {
+  canGoC = false;
+  canGoP = true;
+  setMap(levels[level]);
+  clearText();
+  pRolledNums.splice(0, pRolledNums.length);
+  cRolledNums.splice(0, cRolledNums.length);
+  firstMove = getRndInteger(0, 1);
+  if (firstMove == 1) {
+    computerTurn();
+    addText("Computer Went First!", {x: 0, y: 7, color: color`3`});
+    addText("Press \"l\" to Roll!", {x: 1, y: 8, color: color`3`});
+  }
+  else {
+    addText("Player Goes First!", {x: 1, y: 7, color: color`3`});
+    addText("Press \"l\" to Roll!", {x: 1, y: 8, color: color`3`});
+  }
+})
