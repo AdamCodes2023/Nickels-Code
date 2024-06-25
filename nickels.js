@@ -384,3 +384,25 @@ else {
   addText("Player Goes First!", {x: 1, y: 7, color: color`3`});
   addText("Press \"l\" to Roll!", {x: 1, y: 8, color: color`3`});
 }
+
+//Play the Player's Turn on Input and Check Win Conditions.
+onInput("l", () => {
+  if (canGoP) {
+    canGoC = true;
+    clearText();
+    playTune(melody);
+    playerTurn();
+    if (pRolledNums.length == 10) {
+      addText("PLAYER WINS!", {x: 4, y: 7, color: color`3`});
+      addText("Press \"k\" to Reset!", {x: 1, y: 8, color: color`3`});
+      canGoC = false;
+      canGoP = false;
+    }
+    if (cRolledNums.length == 10) {
+      addText("COMPUTER WINS!", {x: 3, y: 7, color: color`3`});
+      addText("Press \"k\" to Reset!", {x: 1, y: 8, color: color`3`});
+      canGoC = false;
+      canGoP = false;
+    }
+  }
+})
