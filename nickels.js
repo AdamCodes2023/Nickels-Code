@@ -38,6 +38,58 @@ function roll() {
   return getRndInteger(1, 6);
 }
 
+//Find Sprite Information for Any Board Tile.
+function findNumberTileInfo(diceSum, isX, isY, isType, isPlayer) {
+  if (diceSum == 2) {
+    if (isX) {
+      return 0;
+    }
+    if (isY) {
+      if (isPlayer) {
+        return 4;
+      }
+      else {
+        return 1;
+      }
+    }
+    if (isType) {
+      return "b";
+    }
+  }
+  if (diceSum == 3) {
+    if (isX) {
+      return 1;
+    }
+    if (isY) {
+      if (isPlayer) {
+        return 4;
+      }
+      else {
+        return 1;
+      }
+    }
+    if (isType) {
+      return "c";
+    }
+  }
+  if (diceSum == 4) {
+    if (isX) {
+      return 2;
+    }
+    if (isY) {
+      if (isPlayer) {
+        return 4;
+      }
+      else {
+        return 1;
+      }
+    }
+    if (isType) {
+      return "d";
+    }
+  }
+}
+
 //Graphics, Sound, and Map Organization.
 const dot1Dice = "1"
 const dot2Dice = "2"
