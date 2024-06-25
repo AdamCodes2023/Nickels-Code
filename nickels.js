@@ -27,6 +27,17 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
+//Update Dice Sprites with New Rolls.
+function updateDice(x, y, val) {
+  clearTile(x, y);
+  addSprite(x, y, val);
+}
+
+//Roll a Die.
+function roll() {
+  return getRndInteger(1, 6);
+}
+
 //Graphics, Sound, and Map Organization.
 const dot1Dice = "1"
 const dot2Dice = "2"
