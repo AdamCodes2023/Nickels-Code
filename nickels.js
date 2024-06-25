@@ -426,3 +426,22 @@ onInput("k", () => {
     addText("Press \"l\" to Roll!", {x: 1, y: 8, color: color`3`});
   }
 })
+
+//Play the Computer's Turn After the Player and Check Win Conditions.
+afterInput(() => {
+  if (canGoC) {
+    computerTurn();
+    if (cRolledNums.length == 10) {
+      addText("COMPUTER WINS!", {x: 3, y: 7, color: color`3`});
+      addText("Press \"k\" to Reset!", {x: 1, y: 8, color: color`3`});
+      canGoC = false;
+      canGoP = false;
+    }
+    if (pRolledNums.length == 10) {
+      addText("PLAYER WINS!", {x: 4, y: 7, color: color`3`});
+      addText("Press \"k\" to Reset!", {x: 1, y: 8, color: color`3`});
+      canGoC = false;
+      canGoP = false;
+    }
+  }
+})
