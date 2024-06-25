@@ -354,3 +354,19 @@ const melody = tune`
 969.2307692307692`
 
 setSolids([])
+
+let level = 0
+const levels = [
+  map`
+z1z1z
+bcdef
+hijkl
+zzzzz
+bcdef
+hijkl
+z1z1z`
+]
+
+setMap(levels[level])
+
+setPushables({})
