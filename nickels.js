@@ -370,3 +370,17 @@ z1z1z`
 setMap(levels[level])
 
 setPushables({})
+
+//Decide Who Goes First and Define Variables to Stop Controls When the Game Is Over.
+let canGoC = false;
+let canGoP = true;
+let firstMove = getRndInteger(0, 1);
+if (firstMove == 1) {
+  computerTurn();
+  addText("Computer Went First!", {x: 0, y: 7, color: color`3`});
+  addText("Press \"l\" to Roll!", {x: 1, y: 8, color: color`3`});
+}
+else {
+  addText("Player Goes First!", {x: 1, y: 7, color: color`3`});
+  addText("Press \"l\" to Roll!", {x: 1, y: 8, color: color`3`});
+}
