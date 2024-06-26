@@ -18,6 +18,7 @@ In this digital version, all decisions are handled randomly and immediately.
 The goal is to beat the computer opponent.
 */
 
+
 //Keep Track of Covered Values.
 const pRolledNums = [];
 const cRolledNums = [];
