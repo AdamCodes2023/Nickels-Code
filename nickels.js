@@ -265,6 +265,41 @@ function playerTurn() {
   }
 }
 
+//Run the Computer's Turn.
+//Doubles or Stolen Value Both Lead to Another Turn.
+function computerTurn() {
+  let cdice1 = roll();
+  let cdice2 = roll();
+  updateDice(1, 0, cdice1);
+  updateDice(3, 0, cdice2);
+  let csum = cdice1 + cdice2;
+  if (csum != 7) {
+    let flag = false;
+    if (checkRolledNums(cRolledNums, csum)) {
+        let x = 0;
+        let y = 0;
+        x = findNumberTileInfo(csum, true, false, false, false);
+        y = findNumberTileInfo(csum, false, true, false, false);
+        addSprite(x, y, "n");
+        cRolledNums.push(csum);
+    }
+    else {
+      if (checkRolledNums(pRolledNums, csum)) {
+        let x = 0;
+        let y = 0;
+        x = findNumberTileInfo(csum, true, false, false, true);
+        y = findNumberTileInfo(csum, false, true, false, true);
+        addSprite(x, y, "n");
+        pRolledNums.push(csum);
+        flag = true;
+      }
+    }
+    if (flag || (cdice1 == cdice2)) {
+      computerTurn();
+    }
+  }
+}
+
 //Graphics, Sound, and Map Organization.
 const dot1Dice = "1"
 const dot2Dice = "2"
