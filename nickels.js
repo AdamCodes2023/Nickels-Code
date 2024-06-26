@@ -298,6 +298,23 @@ function computerTurn() {
       computerTurn();
     }
   }
+  else {
+    if (cRolledNums.length > 0) {
+      let removeIndex = 0;
+      let tileValue = 0;
+      let x = 0;
+      let y = 0;
+      let spriteType = "0";
+      removeIndex = getRndInteger(0, cRolledNums.length - 1);
+      tileValue = cRolledNums[removeIndex];
+      cRolledNums.splice(removeIndex, 1);
+      x = findNumberTileInfo(tileValue, true, false, false, false);
+      y = findNumberTileInfo(tileValue, false, true, false, false);
+      spriteType = findNumberTileInfo(tileValue, false, false, true, false);
+      clearTile(x, y);
+      addSprite(x, y, spriteType);
+    }
+  }
 }
 
 //Graphics, Sound, and Map Organization.
