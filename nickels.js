@@ -202,6 +202,17 @@ function findNumberTileInfo(diceSum, isX, isY, isType, isPlayer) {
   }
 }
 
+//Check if a Board Value Is Already Covered.
+function checkRolledNums(nums, val) {
+  let flag = true;
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] == val) {
+      flag = false;
+    }
+  }
+  return flag;
+}
+
 //Graphics, Sound, and Map Organization.
 const dot1Dice = "1"
 const dot2Dice = "2"
