@@ -246,6 +246,23 @@ function playerTurn() {
       playerTurn();
     }
   }
+  else {
+    if (pRolledNums.length > 0) {
+      let removeIndex = 0;
+      let tileValue = 0;
+      let x = 0;
+      let y = 0;
+      let spriteType = "0";
+      removeIndex = getRndInteger(0, pRolledNums.length - 1);
+      tileValue = pRolledNums[removeIndex];
+      pRolledNums.splice(removeIndex, 1);
+      x = findNumberTileInfo(tileValue, true, false, false, true);
+      y = findNumberTileInfo(tileValue, false, true, false, true);
+      spriteType = findNumberTileInfo(tileValue, false, false, true, true);
+      clearTile(x, y);
+      addSprite(x, y, spriteType);
+    }
+  }
 }
 
 //Graphics, Sound, and Map Organization.
