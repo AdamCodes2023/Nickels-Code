@@ -213,6 +213,41 @@ function checkRolledNums(nums, val) {
   return flag;
 }
 
+//Run the Player's Turn.
+//Doubles or Stolen Value Both Lead to Another Turn.
+function playerTurn() {
+  let pdice1 = roll();
+  let pdice2 = roll();
+  updateDice(1, 6, pdice1);
+  updateDice(3, 6, pdice2);
+  let psum = pdice1 + pdice2;
+  if (psum != 7) {
+    let flag = false;
+    if (checkRolledNums(pRolledNums, psum)) {
+        let x = 0;
+        let y = 0;
+        x = findNumberTileInfo(psum, true, false, false, true);
+        y = findNumberTileInfo(psum, false, true, false, true);
+        addSprite(x, y, "n");
+        pRolledNums.push(psum);
+    }
+    else {
+      if (checkRolledNums(cRolledNums, psum)) {
+        let x = 0;
+        let y = 0;
+        x = findNumberTileInfo(psum, true, false, false, false);
+        y = findNumberTileInfo(psum, false, true, false, false);
+        addSprite(x, y, "n");
+        cRolledNums.push(psum);
+        flag = true;
+      }
+    }
+    if (flag || (pdice1 == pdice2)) {
+      playerTurn();
+    }
+  }
+}
+
 //Graphics, Sound, and Map Organization.
 const dot1Dice = "1"
 const dot2Dice = "2"
